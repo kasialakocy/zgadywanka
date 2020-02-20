@@ -9,11 +9,14 @@ namespace ConsoleApp2
             Console.WriteLine("Gra za dużo za mało");
 
             // 1. komputer losuje
-            Random los = new Random(); // tworze obiekt typu Random
+            #region losowanie
+            var los = new Random(); // tworze obiekt typu Random
             int wylosowana = los.Next(1, 100 + 1);
+#if DEBUG
             Console.WriteLine(wylosowana);
+#endif
             Console.WriteLine("wylosowałem liczbę od 1 do 100.\nOdgadnij ją!");
-
+            #endregion
             bool odgadniete = false;
             //dopóki nie odgadnięte
             while ( ! odgadniete)
@@ -26,11 +29,14 @@ namespace ConsoleApp2
 
                 // 3. komputer ocenia
                 if (propozycja < wylosowana)
+
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("za mało");
                     Console.ResetColor();
+
                 }
+
                 else if (propozycja > wylosowana)
                 {
 
